@@ -9,6 +9,14 @@ const Hello = (props) => {
   )
 }
 
+const Footer = () => {
+  return (
+    <div>
+      greetings <a href='https://www.youtube.com/watch?v=pok8H_KF1FA'> DOJA</a>
+    </div>
+  )
+}
+
 const App = () => {
   const name = 'Han'
   const age = 0
@@ -17,6 +25,7 @@ const App = () => {
       <h1>Greetings</h1>
       <Hello name="Snooky" age={0 + 6}/>
       <Hello name={name} age={age} />
+      <Footer />
     </div>
   )
 }
