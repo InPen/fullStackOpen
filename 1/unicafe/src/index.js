@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+const Header = () => {}
+
+const Content = () => {}
+
+const Total = () => {}
 
 const App = () => {
   const course = 'Half stack application development'
