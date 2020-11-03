@@ -16,16 +16,31 @@ const Hello = ({name, age}) => {
 }
 
 
-const App = () => {
-  const name = 'Han'
-  const age = 0
+const App = (props) => {
+  const {counter} = props
   return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Snooky" age={0 + 6}/>
-      <Hello name={name} age={age} />
-    </div>
+    <div> {counter}</div>
   )
+  // const name = 'Han'
+  // const age = 0
+  // return (
+  //   <div>
+  //     <h1>Greetings</h1>
+  //     <Hello name="Snooky" age={0 + 6}/>
+  //     <Hello name={name} age={age} />
+  //   </div>
+  // )
 }
-
-ReactDOM.render(<App />, document.getElementById('root'))
+let counter = 1
+const refresh = () => {
+  ReactDOM.render(<App counter={counter} />, document.getElementById('root'))
+}
+setInterval(() => {
+  refresh()
+  counter +=1
+}, 1000)
+// refresh()
+// counter +=1
+// refresh()
+// counter +=1
+// refresh()
