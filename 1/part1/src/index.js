@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Hello = (props) => {
+  const name = props.name
+  const age = props.age
+
   const bornYear = () => {
     const yearNow = new Date().getFullYear()
-    return yearNow - props.age
+    return yearNow - age
   }
   return (
     <div>
-      <p> Hewo {props.name}, you are {props.age} years old! </p>
+      <p> Hewo {name}, you are {age} years old! </p>
       <p> You were born in {bornYear()} </p>
     </div>
   )
