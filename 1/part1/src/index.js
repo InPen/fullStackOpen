@@ -20,23 +20,13 @@ const App = () => {
   const [counter, setCounter] = useState(0)
 
   return (
-    <div> {counter}</div>
-    <button onClick={() => console.log('yo, you clicked?!')} > AddMeBruh </button>
+    <div>
+      <div> {counter}</div>
+      <button onClick={() => setCounter(counter +1)} > AddMeBruh </button>
+      <button onClick={() => setCounter(0)}> Zero </button>
+    </div>
   )
-  // const name = 'Han'
-  // const age = 0
-  // return (
-  //   <div>
-  //     <h1>Greetings</h1>
-  //     <Hello name="Snooky" age={0 + 6}/>
-  //     <Hello name={name} age={age} />
-  //   </div>
-  // )
+
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
-// refresh()
-// counter +=1
-// refresh()
-// counter +=1
-// refresh()
