@@ -9,13 +9,6 @@ const Hello = (props) => {
   )
 }
 
-const Footer = () => {
-  return (
-    <div>
-      greetings <a href='https://www.youtube.com/watch?v=pok8H_KF1FA'> DOJA</a>
-    </div>
-  )
-}
 
 const App = () => {
   const name = 'Han'
