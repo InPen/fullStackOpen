@@ -18,12 +18,13 @@ import ReactDOM from 'react-dom';
 
 const App = () => {
   const [counter, setCounter] = useState(0)
-
+  const increaseByOne = () => setCounter(counter + 1)
+  const setToZero = () => setCounter(0)
   return (
     <div>
       <div> {counter}</div>
-      <button onClick={() => setCounter(counter +1)} > AddMeBruh </button>
-      <button onClick={() => setCounter(0)}> Zero </button>
+      <button onClick={increaseByOne} > AddMeBruh </button>
+      <button onClick={setToZero}> Zero </button>
     </div>
   )
 
