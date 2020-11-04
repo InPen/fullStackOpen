@@ -11,16 +11,14 @@ const History = (props) => {
 }
 
 
-const Button = ({onClick, text}) => (
-  <button onClick={onClick}> {text} </button>
-)
-
-
-return (
-  <div>
-    button press history: {props.allClicks.join(' ')}
-  </div>
-)
+const Button = (props) => {
+  console.log('props value is ', props)
+  const { onClick, text } = props
+  return (
+    <button onClick={onClick}>
+      {text}
+    </button>
+  )
 }
 
 
