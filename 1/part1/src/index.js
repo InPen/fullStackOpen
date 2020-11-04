@@ -17,21 +17,14 @@ const App = () => {
   const [clicks, setClicks] = useState({
     left:0, right:0
   })
-  const handleLeftClick = () => {
-    const newClicks = {
-      left: clicks.left +1,
-      right: clicks.right
-    }
-    setClicks(newClicks)
-  }
+  const handleLeftClick = () => setClicks({...clicks, left: clicks.left + 1})
 
-  const handleRightClick = () => {
-    const newClicks = {
-      right: clicks.right +1,
-      left: clicks.left
-    }
-    setClicks(newClicks)
-  }
+  const handleRightClick = () => setClicks({...clicks, right: clicks.right + 1})
+    // const newClicks = {
+    //   right: clicks.right +1,
+    //   left: clicks.left
+    // }
+    // setClicks(newClicks)
   return (
     <div>
     {clicks.left}
