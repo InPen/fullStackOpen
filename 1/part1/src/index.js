@@ -14,17 +14,19 @@ const Button = ({handleClick, text}) => {
 }
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
-  const increaseByOne = () => setCounter(counter + 1)
-  const decreaseByOne = () => setCounter(counter -1)
-  const setToZero = () => setCounter(0)
+  const [left, setLeft] = useState(0)
+  const [right, setRight] = useState(0)
+  // const [counter, setCounter] = useState(0)
+  // const increaseByOne = () => setCounter(counter + 1)
+  // const decreaseByOne = () => setCounter(counter -1)
+  // const setToZero = () => setCounter(0)
 
   return (
     <div>
-      <Display counter={counter}/>
-      <Button handleClick={increaseByOne} text='Plus' />
-      <Button handleClick={decreaseByOne} text='Minus' />
-      <Button handleClick={setToZero} text='Reset Counter' />
+    {left}
+      <button onClick={() => setLeft(left + 1)}> Left </button>
+      <button onClick={() => setRight(right + 1)}> Right </button>
+    {right}
     </div>
   )
 
