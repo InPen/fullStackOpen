@@ -14,19 +14,30 @@ const Button = ({handleClick, text}) => {
 }
 
 const App = () => {
-  const [left, setLeft] = useState(0)
-  const [right, setRight] = useState(0)
-  // const [counter, setCounter] = useState(0)
-  // const increaseByOne = () => setCounter(counter + 1)
-  // const decreaseByOne = () => setCounter(counter -1)
-  // const setToZero = () => setCounter(0)
+  const [clicks, setClicks] = useState({
+    left:0, right:0
+  })
+  const handleLeftClick = () => {
+    const newClicks = {
+      left: clicks.left +1,
+      right: clicks.right
+    }
+    setClicks(newClicks)
+  }
 
+  const handleRightClick = () => {
+    const newClicks = {
+      right: clicks.right +1,
+      left: clicks.left
+    }
+    setClicks(newClicks)
+  }
   return (
     <div>
-    {left}
-      <button onClick={() => setLeft(left + 1)}> Left </button>
-      <button onClick={() => setRight(right + 1)}> Right </button>
-    {right}
+    {clicks.left}
+      <button onClick={handleLeftClick}> Left </button>
+      <button onClick={handleRightClick}> Right </button>
+    {clicks.right}
     </div>
   )
 
