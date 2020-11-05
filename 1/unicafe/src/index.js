@@ -33,11 +33,18 @@ const App = () => {
 
   const totalFeedback = () => {
     let total = (good + neutral + bad)
-    console.log(total)
+    // console.log(total)
     return total
   }
-  const averageScore = () => {}
-  const percentageOfPositiveFeedback = () => {}
+  const averageScore = () => {
+    let average = ((good + neutral + bad) / 3)
+    console.log(average)
+    return average
+  }
+  const percentageOfPositiveFeedback = () => {
+    let percent = (good / 100) * totalFeedback()
+    return percent
+  }
 
   return (
     <div>
@@ -51,7 +58,8 @@ const App = () => {
       <p>Neutral: {neutral} </p>
       <p>Bad: {bad} </p>
       <p>Total Feedback: {totalFeedback()}</p>
-
+      <p> Average: {averageScore()}</p>
+      <p> Average Positive: {percentageOfPositiveFeedback()}%</p>
     </div>
   )
 }
