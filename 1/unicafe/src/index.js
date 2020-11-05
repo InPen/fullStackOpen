@@ -38,11 +38,12 @@ const App = () => {
   }
   const averageScore = () => {
     let average = ((good + neutral + bad) / 3)
-    console.log(average)
+    // console.log(average)
     return average
   }
   const percentageOfPositiveFeedback = () => {
-    let percent = (good / 100) * totalFeedback()
+    let percent = (good/100) 
+    console.log(percent)
     return percent
   }
 
