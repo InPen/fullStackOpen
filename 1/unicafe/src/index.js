@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-// const Header = () => {}
+const Stats = (props) => {}
 
 const Button = (props) => {
   console.log('props value is ', props)
