@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-const Stats = (props) => {}
+// const Stats = (props) => {
+//   console.log('total is ', props)
+// }
 
 const Button = (props) => {
-  console.log('props value is ', props)
+  // console.log('props value is ', props)
   const { onClick, text } = props
   return (
     <button onClick={onClick}> {text} </button>
@@ -29,6 +31,14 @@ const App = () => {
     setBad(bad + 1)
   }
 
+  const totalFeedback = () => {
+    let total = (good + neutral + bad)
+    console.log(total)
+    return total
+  }
+  const averageScore = () => {}
+  const percentageOfPositiveFeedback = () => {}
+
   return (
     <div>
       <h2> Give Feedback, Please~ </h2>
@@ -40,18 +50,10 @@ const App = () => {
       <p>Good: {good} </p>
       <p>Neutral: {neutral} </p>
       <p>Bad: {bad} </p>
+      <p>Total Feedback: {totalFeedback()}</p>
 
     </div>
   )
 }
-//   return (
-//     <div>
-//       <Header course={course}/>
-//       <Content name={course.parts[0].name} exercises={course.parts[0].exercises}/>
-//       <Content name={course.parts[1].name} exercises={course.parts[1].exercises}/>
-//       <Content name={course.parts[2].name} exercises={course.parts[2].exercises}/>
-//       <Total total={course.parts[0].exercises + course.parts[0].exercises + course.parts[0].exercises}/>
-//     </div>
-//   )
-// }
+
 ReactDOM.render(<App />, document.getElementById('root'))
