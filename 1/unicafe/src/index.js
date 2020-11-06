@@ -68,7 +68,7 @@ const App = () => {
       <p>Good: {good} </p>
       <p>Neutral: {neutral} </p>
       <p>Bad: {bad} </p>
-      {(good || bad || neutral) ? <Stats total={totalFeedback()} average={averageScore()} averagePositive={percentageOfPositiveFeedback()}  /> : <h4>Nothing entered yet...</h4>}
+      {(good || bad || neutral) ? <Stats total={totalFeedback()} average={averageScore()} averagePositive={percentageOfPositiveFeedback()}  /> : <h4>No feedback given</h4>}
     </div>
   )
 }
