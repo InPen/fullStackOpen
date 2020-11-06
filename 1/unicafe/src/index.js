@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 
-const Stats = ({totalFeedback, average, percentageOfPositiveFeedback}) => {
+const Stats = (props) => {
+  console.log(props.sdf);
+  const printThis = () => {
+    console.log("did it print?");
+  }
   return (
-    <div>
-      <p> </p>
+    <div onClick={printThis}>
+      <p>Our total rating is {props.total} </p>
+      <p>Our average rating is {props.average} </p>
+      <p>Our positive feedback is at {props.averagePositive} </p>
     </div>
   )
 }
@@ -62,9 +68,7 @@ const App = () => {
       <p>Good: {good} </p>
       <p>Neutral: {neutral} </p>
       <p>Bad: {bad} </p>
-      <Stats totalFeedback={totalFeedback} />
-      <Stats average={averageScore} />
-      <Stats averagePositive={percentageOfPositiveFeedback} />
+      {(good || bad || neutral) ? <Stats total={totalFeedback()} average={averageScore()} averagePositive={percentageOfPositiveFeedback()}  /> : <h4>Nothing entered yet...</h4>}
     </div>
   )
 }
