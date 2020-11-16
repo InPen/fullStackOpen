@@ -1,30 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-
-const notes = [
-  {
-    id: 1,
-    content: 'HTML is easy',
-    date: '2019-05-30T17:30:31.098Z',
-    important: true
-  },
-  {
-    id: 2,
-    content: 'Browser can execute only Javascript',
-    date: '2019-05-30T18:39:34.091Z',
-    important: false
-  },
-  {
-    id: 3,
-    content: 'GET and POST are the most important methods of HTTP protocol',
-    date: '2019-05-30T19:20:14.298Z',
-    important: true
-  }
-]
-
-
-ReactDOM.render(
-  <App notes={notes} />,
-  document.getElementById('root')
-)
+const Header = (props) => {
+  return (
+    <header>
+      <h1>{props.course.name}</h1>
+    </header>
+  )
+}
+const Content = (props) => {
+  console.log(props);
+  return (
+    <p>The topic of the course is {props.name} and there are {props.exercises} exercises</p>
+  )
+}
+const Total = (props) => {
+  return (
+    <p>In total this course has {props.total} exercises</p>
+  )
+}
+const App = () => {
+  const course = {
+    name:'Half stack application development',
+    parts : [
+    {name:'Fundamentals of React', exercises: 10},
+    {name:'Using props to pass data', exercises:7},
+    {name:'State of a component', exercises:14}
+  ]
+}
+  return (
+    <div>
+      <Header course={course}/>
+      <Content name={course.parts[0].name} exercises={course.parts[0].exercises}/>
+      <Content name={course.parts[1].name} exercises={course.parts[1].exercises}/>
+      <Content name={course.parts[2].name} exercises={course.parts[2].exercises}/>
+      <Total total={course.parts[0].exercises + course.parts[0].exercises + course.parts[0].exercises}/>
+    </div>
+  )
+}
+ReactDOM.render(<App />, document.getElementById('root'))
