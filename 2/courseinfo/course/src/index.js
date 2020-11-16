@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
 const notes = [
   {
@@ -10,7 +11,7 @@ const notes = [
   },
   {
     id: 2,
-    content: 'Browser can execute only JavaScript',
+    content: 'Browser can execute only Javascript',
     date: '2019-05-30T18:39:34.091Z',
     important: false
   },
@@ -22,22 +23,6 @@ const notes = [
   }
 ]
 
-const App = (props) => {
-  const { notes } = props
-
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-      {notes.map(note =>
-       <li key={note.id}>
-         {note.content}
-       </li>
-     )}
-      </ul>
-    </div>
-  )
-}
 
 ReactDOM.render(
   <App notes={notes} />,
