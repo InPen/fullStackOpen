@@ -1,27 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
-const Header = (props) => {
-  return (
-    <header>
-      <h1>{props.course.name}</h1>
-    </header>
-  )
-}
-const Content = (props) => {
-  console.log(props);
-  return (
-    <p>The topic of the course is {props.name} and there are {props.exercises} exercises</p>
-  )
-}
-const Total = (props) => {
-  return (
-    <p>In total this course has {props.total} exercises</p>
-  )
-}
-
-const App = () => {
-  const course = {
+const course =
+  {
     id: 1,
     name: 'Half Stack application development',
     parts: [
@@ -43,6 +25,5 @@ const App = () => {
     ]
   }
 
-  return <Course course={course} />
-}
-ReactDOM.render(<App />, document.getElementById('root'))
+
+ReactDOM.render(<App course={course} />, document.getElementById('root'))
