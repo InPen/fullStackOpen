@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 const Header = (props) => {
   return (
     <header>
@@ -18,23 +19,30 @@ const Total = (props) => {
     <p>In total this course has {props.total} exercises</p>
   )
 }
+
 const App = () => {
   const course = {
-    name:'Half stack application development',
-    parts : [
-    {name:'Fundamentals of React', exercises: 10},
-    {name:'Using props to pass data', exercises:7},
-    {name:'State of a component', exercises:14}
-  ]
-}
-  return (
-    <div>
-      <Header course={course}/>
-      <Content name={course.parts[0].name} exercises={course.parts[0].exercises}/>
-      <Content name={course.parts[1].name} exercises={course.parts[1].exercises}/>
-      <Content name={course.parts[2].name} exercises={course.parts[2].exercises}/>
-      <Total total={course.parts[0].exercises + course.parts[0].exercises + course.parts[0].exercises}/>
-    </div>
-  )
+    id: 1,
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10,
+        id: 1
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7,
+        id: 2
+      },
+      {
+        name: 'State of a component',
+        exercises: 14,
+        id: 3
+      }
+    ]
+  }
+
+  return <Course course={course} />
 }
 ReactDOM.render(<App />, document.getElementById('root'))
