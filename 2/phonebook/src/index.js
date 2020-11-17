@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 
 const App = (props) => {
-  const [ persons, setPersons ] = useState([
-    { name: 'Arto Hellas' }
-  ])
+  const [ persons, setPersons ] = useState(props.persons)
   const [ newName, setNewName ] = useState('')
+  const [showAll, setShowAll] = useState(true)
 
   const addContact = (event) => {
     event.preventDefault()
@@ -15,6 +14,11 @@ const App = (props) => {
     }
     setPersons(persons.concat(personObject))
     setNewName('')
+  }
+
+  const handleContactChange = (event) =>{
+    console.log(event.target.value)
+    setNewName(event.target.value)
   }
 
   return (
