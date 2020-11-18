@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const App = (props) => {
-  const [ persons, setPersons ] = useState(props.persons)
+  const [ persons, setPersons ] = useState([])
   const [ newName, setNewName ] = useState('')
   const [showAll, setShowAll] = useState(true)
+
+  useEffect(() => {
+    console.log('effect')
+    axios
+      .get('http://localhost:3001/persons')
+      .then(response => {
+        const persons = response.data
+        console.log(persons)
+      })
+    }, [])
+console.log('render', persons.length, 'persons')
 
   const addContact = (event) => {
     event.preventDefault()
