@@ -1,9 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+const Countries = () => {
+  return (
+    <div>
+      <p>I can't travel anywhere because I don't have papers</p>
+    </div>
+  )
+}
+
 const App = () => (
   <div>
-    <p>Hello world</p>
+    <Countries />
   </div>
 )
 
