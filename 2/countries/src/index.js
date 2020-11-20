@@ -1,16 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Countries = () => {
+const Countries = (props) => {
   return (
     <div>
-      <p>I can't travel anywhere because I don't have papers</p>
+      <p>I don't have papers {props.name} </p>
     </div>
   )
 }
 
 const App = () => (
   <div>
+    <Countries name='por pendeja' />
+    <Countries />
+    <Countries />
+    <Countries />
+    <Countries />
     <Countries />
   </div>
 )
