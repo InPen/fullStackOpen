@@ -15,10 +15,16 @@ const App = () => {
     () => setCounter(counter + 1),
     1000
   )
+
+  const showClick = () => {
+    console.log('clicked')
+  }
+
   return (
   <div>
     <Countries name='Switzerland' />
     {counter}
+    <button onClick={showClick}> show </button>
   </div>
   )
 }
