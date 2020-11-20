@@ -9,14 +9,11 @@ const Country = (props) => {
   )
 }
 
-const Button = (props) => {
-  console.log('clicked')
-  return (
-    <button onClick={props.handleClick}>
-    {props.text}
-    </button>
-  )
-}
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
 
 const App = () => {
   const [ counter, setCounter ] = useState(0)
