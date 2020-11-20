@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const Countries = (props) => {
+const Country = (props) => {
   return (
     <div>
       <p>find countries {props.name} </p>
     </div>
+  )
+}
+
+const Button = (props) => {
+  console.log('clicked')
+  return (
+    <button onClick={props.handleClick}>
+    {props.text}
+    </button>
   )
 }
 
@@ -16,15 +25,13 @@ const App = () => {
     1000
   )
 
-  const showClick = () => {
-    console.log('clicked')
-  }
+  const setToZero = () => setCounter(0)
 
   return (
   <div>
-    <Countries name='Switzerland' />
+    <Country name='Switzerland' />
     {counter}
-    <button onClick={showClick}> show </button>
+    <Button handleClick={setToZero} text='show' />
   </div>
   )
 }
