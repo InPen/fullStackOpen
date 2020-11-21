@@ -4,7 +4,6 @@ import React, {useState, useEffect} from 'react'
 // import Country from './components/Country'
 import axios from 'axios'
 
-
 const App = () => {
 //search is an empty string. setSearch is a function used to update search
   const [search, setSearch] = useState('')
@@ -18,11 +17,21 @@ const App = () => {
   }
   useEffect(hook, [])
 
-
+  const findCountry = (event) => {
+    event.preventDefault()
+    console.log('button clicked', event.target)
+  }
 
   return (
   <div>
-    {countries.map(country => <h1>{country.name}</h1>)}
+    <p>find countries</p>
+    <form onSubmit={findCountry}>
+      <input />
+      <button type="submit">search</button>
+    </form>
+    <ul>
+    {countries.map(country => <h2>{country.name}</h2>)}
+    </ul>
   </div>
   )
 }
