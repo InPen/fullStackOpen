@@ -1,32 +1,42 @@
 import React, {useState, useEffect} from 'react'
-// import Filter from './components/Filter'
-// import Countries from './components/Countries'
-// import Country from './components/Country'
 import axios from 'axios'
 
-const App = () => {
+// import InputField from './components/InputField'
+// import Countries from './components/Countries'
+
+const App = (props) => {
 //search is an empty string. setSearch is a function used to update search
   const [search, setSearch] = useState('')
   const [countries, setCountries] = useState([])
+  // const [weatherData, setWeatherData] = useState(null)
 
-//takes callBack function && array
-  const hook = () => {
+//GET country data from api
+  useEffect(() => {
     axios
       .get('https://restcountries.eu/rest/v2/all')
-      .then(countriesResponse => setCountries(countriesResponse.data))
-  }
-  useEffect(hook, [])
+      .then(countriesResponse => {
+        if (search !== "") {
+          const searchResult = countriesResponse.data.filter(country =>
+          country.name.toLowerCase().includes(search.toLowerCase()))
+          setCountries(searchResult)
+        }
+      })
+  }, [search])
+
 
   const findCountry = (event) => {
     event.preventDefault()
-    console.log('button clicked', event.target)
+    setSearch(event.target.value)
   }
 
   return (
   <div>
     <p>find countries</p>
-    <form onSubmit={findCountry}>
-      <input />
+    <form onSubmit={showCountry}>
+      <input
+        value={search}
+        onChange={findCountry}
+      />
       <button type="submit">search</button>
     </form>
     <ul>
