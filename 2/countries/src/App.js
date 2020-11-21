@@ -11,13 +11,12 @@ const App = () => {
   const [countries, setCountries] = useState([])
 
 //takes callBack function && array
-  useEffect(() => {
+  const hook = () => {
     axios
       .get('https://restcountries.eu/rest/v2/all')
       .then(countriesResponse => setCountries(countriesResponse.data))
-
-  }, [])
-console.log(countries)
+  }
+  useEffect(hook, [])
 
 
 
