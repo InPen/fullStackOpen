@@ -1,8 +1,7 @@
 import React from "react"
-import styles from "./CountryDetail.module.css"
 
 const CountryDetail = ({ country }) => (
-  <div className={styles.country}>
+  <div>
     <h1>{country.name}</h1>
     <span>Capital: {country.capital}</span>
     <span>Population: {country.population}</span>
@@ -15,7 +14,6 @@ const CountryDetail = ({ country }) => (
       alt={`Flag of ${country.name}`}
       width="100px"
       height="100px"
-      className={styles.countryFlag}
     />
   </div>
 );

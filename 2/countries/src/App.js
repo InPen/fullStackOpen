@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-import "./App.css";
+//components
 import InputField from "./components/InputField";
 import Countries from "./components/Countries";
 
@@ -9,6 +8,7 @@ const App = (props) => {
 //search is an empty string. setSearch is a function used to update search
   const [search, setSearch] = useState('')
   const [countries, setCountries] = useState([])
+// why null and not [] like countries?
   const [weatherData, setWeatherData] = useState(null)
 
 //GET country data from api

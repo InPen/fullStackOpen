@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
 const WeatherData = ({ weatherData }) => (
   <>
     {weatherData && (
       <div>
         <h2>Weather in {weatherData?.location.name}</h2>
-        <div className={weatherData}>
+        <div>
           <span>Temperature: </span>
           <span>{weatherData?.current.temperature} &deg; Celsius</span>
         </div>
