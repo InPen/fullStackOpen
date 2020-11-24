@@ -40,6 +40,10 @@ const App = () => {
     ? notes
     : notes.filter(note => note.important)
 
+  const toggleImportanceOf = (id) => {
+    console.log('importance of ' + id + ' needs to be toggled');
+  }
+
   return (
     <div>
       <h1>Notes</h1>
@@ -50,7 +54,9 @@ const App = () => {
       </div>
       <ul>
         {notesToShow.map((note, i) =>
-          <Note key={i} note={note} />
+          <Note key={i} note={note}
+            toggleImportance={() => toggleImportanceOf(note.id)}
+          />
         )}
       </ul>
       <form onSubmit={addNote}>
