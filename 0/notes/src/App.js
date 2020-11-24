@@ -41,10 +41,14 @@ const App = () => {
     : notes.filter(note => note.important)
 
   const toggleImportanceOf = (id) => {
+//the unique url for each note resource based on its id
     const url = 'http://localhost:3001/notes/${id}'
+//find the note we want to modify, and we then assign it to the note variable.
     const note = notes.find(n => n.id === id)
+//create a new object that is an exact copy of the old note, apart from the important property
     const changedNote = { ...note, important: !note.important }
     axios.put(url, changedNote).then(response => {
+//The map method creates a new array by mapping every item from the old array into an item in the new array. In our example, the new array is created conditionally so that if note.id !== id is true, we simply copy the item from the old array into the new array. If the condition is false, then the note object returned by the server is added to the array instead.
       setNotes(notes.map(note => note.id !== id ? note : response.data))
     })
   }
