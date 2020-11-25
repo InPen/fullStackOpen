@@ -6,8 +6,9 @@ const Form = ({
   newName,
   handleNameChange,
   newNumber,
-  handleNumberChange}) => {
-    <form onSubmit={onSubmit}>
+  handleNumberChange
+}) => (
+  <form onSubmit={onSubmit}>
     <InputField
       label="Name:"
       htmlFor="name"
@@ -17,16 +18,17 @@ const Form = ({
     />
 
     <InputField
-      label="Numbah:"
+      label="Number:"
       htmlFor="number"
-      type="integer"
       value={newNumber}
       onChange={handleNumberChange}
     />
-
     <div>
-      <button className="submit button" type="submit"> Add </button>
+      <button className="button submit" type="submit">
+        Add
+      </button>
     </div>
   </form>
-  }
+) 
+
 export default Form
