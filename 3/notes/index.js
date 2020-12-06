@@ -3,6 +3,20 @@ const app = express()
 
 app.use(express.json())
 
+const requestLogger = (request, response, next) => {
+  console.log('Method:', request.method)
+  console.log('Path:  ', request.path)
+  console.log('Body:  ', request.body)
+  console.log('---')
+  next()
+}
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' })
+}
+
+app.use(requestLogger)
+
 let notes = [
   {
     id: 1,
@@ -28,12 +42,10 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
-//GET a All resource(notes)
 app.get('/api/notes', (req, res) => {
   res.json(notes)
 })
 
-//Create/POST a single resource(note)
 const generateId = () => {
   const maxId = notes.length > 0
     ? Math.max(...notes.map(n => n.id))
@@ -62,7 +74,6 @@ app.post('/api/notes', (request, response) => {
   response.json(note)
 })
 
-//GET a single resource(note)
 app.get('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   const note = notes.find(note => note.id === id)
@@ -73,13 +84,14 @@ app.get('/api/notes/:id', (request, response) => {
   }
 })
 
-//DELETE a single resource(note)
 app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   notes = notes.filter(note => note.id !== id)
 
   response.status(204).end()
 })
+
+app.use(unknownEndpoint)
 
 const PORT = 3001
 app.listen(PORT, () => {
