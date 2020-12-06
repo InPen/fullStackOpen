@@ -1,3 +1,4 @@
+const express = require('express')
 const http = require('http')
 
 let persons = [
@@ -23,9 +24,8 @@ let persons = [
   }
 ]
 
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { 'Content-Type': 'text/plain' })
-  response.end('Hewo :3')
+app.get('/', (request, response) => {
+  response.send('<h1>Hello World!</h1>')
 })
 
 const PORT = 3001
